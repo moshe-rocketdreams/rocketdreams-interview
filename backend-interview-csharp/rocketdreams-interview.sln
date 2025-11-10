@@ -6,7 +6,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "backend-interview-csharp", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{CA8807CB-5D76-D176-51CF-B9044D7E9A5D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BettingAPI", "backend-interview-csharp\src\BettingAPI\BettingAPI.csproj", "{FFD5E4C3-A67C-204A-FAA7-357F8A0CFFD1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BettingAPI", "src\BettingAPI\BettingAPI.csproj", "{318BB358-6A26-83E1-EB85-B35C3CC67417}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -14,17 +14,17 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{FFD5E4C3-A67C-204A-FAA7-357F8A0CFFD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FFD5E4C3-A67C-204A-FAA7-357F8A0CFFD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FFD5E4C3-A67C-204A-FAA7-357F8A0CFFD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FFD5E4C3-A67C-204A-FAA7-357F8A0CFFD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{318BB358-6A26-83E1-EB85-B35C3CC67417}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{318BB358-6A26-83E1-EB85-B35C3CC67417}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{318BB358-6A26-83E1-EB85-B35C3CC67417}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{318BB358-6A26-83E1-EB85-B35C3CC67417}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{CA8807CB-5D76-D176-51CF-B9044D7E9A5D} = {FA5B1B21-E68F-B860-E4AF-B51A5C60D969}
-		{FFD5E4C3-A67C-204A-FAA7-357F8A0CFFD1} = {CA8807CB-5D76-D176-51CF-B9044D7E9A5D}
+		{318BB358-6A26-83E1-EB85-B35C3CC67417} = {CA8807CB-5D76-D176-51CF-B9044D7E9A5D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {680A062D-D2BE-4558-8506-707A5E02C81C}

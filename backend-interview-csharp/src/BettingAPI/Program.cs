@@ -22,8 +22,11 @@ using (var scope = app.Services.CreateScope())
     try
     {
         var context = services.GetRequiredService<BettingDbContext>();
-        var cancellationTokenSource = new CancellationTokenSource(TimeSpan.FromSeconds(10));
-        await context.Database.CanConnectAsync(cancellationTokenSource.Token);
+        var cancellationTokenSource = new CancellationTokenSource(TimeSpan.FromSeconds(30));
+        if (!await context.Database.CanConnectAsync(cancellationTokenSource.Token))
+        {
+            throw new Exception("Failed to connect to the database within the 30-second timeout.");
+        }
         
         logger.LogInformation("Successfully connected to database.");
     }
