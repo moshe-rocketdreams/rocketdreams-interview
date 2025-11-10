@@ -1,3 +1,13 @@
+// This is your Prisma configuration file.
+// Learn more about it in the docs: https://pris.ly/d/prisma-config
+import "dotenv/config";
+
+import { PrismaClient } from '@prisma/client'
+
+declare global {
+  var prisma: PrismaClient;
+}
+
 import { defineConfig, env } from "prisma/config";
 
 export default defineConfig({
