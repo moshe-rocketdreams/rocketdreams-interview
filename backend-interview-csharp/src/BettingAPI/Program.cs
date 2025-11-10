@@ -14,6 +14,28 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+// Check DB connection on startup
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var logger = services.GetRequiredService<ILogger<Program>>();
+    try
+    {
+        var context = services.GetRequiredService<BettingDbContext>();
+        var cancellationTokenSource = new CancellationTokenSource(TimeSpan.FromSeconds(10));
+        await context.Database.CanConnectAsync(cancellationTokenSource.Token);
+        
+        logger.LogInformation("Successfully connected to database.");
+    }
+    catch (Exception ex)
+    {
+        logger.LogError(ex, "An error occurred while connecting to the database. Application is shutting down.");
+        // Re-throwing the exception will cause the application to crash, which is a clear
+        // indication of a startup failure.
+        throw;
+    }
+}
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
