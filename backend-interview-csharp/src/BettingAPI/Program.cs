@@ -14,7 +14,7 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Check DB connection on startup
+// Apply migrations and ensure DB is created on startup
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
@@ -22,19 +22,13 @@ using (var scope = app.Services.CreateScope())
     try
     {
         var context = services.GetRequiredService<BettingDbContext>();
-        var cancellationTokenSource = new CancellationTokenSource(TimeSpan.FromSeconds(30));
-        if (!await context.Database.CanConnectAsync(cancellationTokenSource.Token))
-        {
-            throw new Exception("Failed to connect to the database within the 30-second timeout.");
-        }
-        
-        logger.LogInformation("Successfully connected to database.");
+        await context.Database.MigrateAsync();
+        logger.LogInformation("Database migration completed successfully.");
     }
     catch (Exception ex)
     {
-        logger.LogError(ex, "An error occurred while connecting to the database. Application is shutting down.");
-        // Re-throwing the exception will cause the application to crash, which is a clear
-        // indication of a startup failure.
+        logger.LogError(ex, "An error occurred during database migration. Application will not start.");
+        // Re-throw the exception to ensure the application fails to start
         throw;
     }
 }
